@@ -1,0 +1,56 @@
+#teacher-form{
+	display: block;
+	max-width: 600px;
+	margin: 0 auto;
+	border: 1px solid solid;
+	padding: 15px;
+	border-radius: 5px;
+	margin-bottom: 50px;
+}
+
+.teacher-registration{
+    padding: 30px;
+}
+
+#teacher-form{
+    padding: 30px;
+    -webkit-box-shadow: -8px -2px 23px 3px rgba(145,145,145,0.75);
+    -moz-box-shadow: -8px -2px 23px 3px rgba(145,145,145,0.75);
+    box-shadow: -8px -2px 23px 3px rgba(145,145,145,0.75);
+}
+
+#teacher-form label{
+	line-height: 3em;
+}
+
+
+.input-field{
+	width: 100%;
+	padding-top: 10px;
+	padding-bottom:10px; 
+    padding-left: 10px;
+	border-radius: 5px;
+	border:1px solid #c1c1c1;
+	font-size: 14px;
+}
+
+#submit-btn{
+    margin-top: 20px;
+    width: 100%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    color: blue;
+    background-color: white;
+    border: 2px solid blue;
+    border-radius: 3px;
+    font-size: 1.5em;
+    cursor: pointer;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#submit-btn:hover{
+    font-size: 1.5em;
+    border: none;
+    background-color: blue;
+    color: white;
+}

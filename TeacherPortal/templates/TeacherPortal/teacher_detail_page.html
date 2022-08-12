@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class101</title>
+    <link
+      rel="stylesheet"
+      href="{% static './TeacherPortal/css/teacher_detail_page.css' %}"
+    />
+  </head>
+  <body>
+    <nav>
+      <div id="navbar">
+        <div id="class101">
+          <h1><a href="#">Class101</a></h1>
+        </div>
+        <div id="nav-components">
+          <a href="{% url 'teacher_portal:logout' %}"> logout</a>
+          <button id="create-class-btn">
+            <img
+              src="{% static './TeacherPortal/images/plus.png' %}"
+              alt="Make-class"
+            />
+          </button>
+          <button id="profile-btn">
+            <img
+              src="{% static './TeacherPortal/images/user.png' %}"
+              alt="Profile"
+            />
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <section>
+      <div id="create-new-class">
+        <form action="" class="create-new-class-form" method="post">
+          {% csrf_token %}
+          <label>Class Name <span style="color: red">*</span></label>
+          <input
+            type="text"
+            class="input-field"
+            name="class_name"
+            placeholder="class name"
+          />
+
+          <label>Section</label>
+          <input
+            type="text"
+            class="input-field"
+            name="section"
+            placeholder="section"
+          />
+
+          <label>Subject Name</label>
+          <input
+            type="text"
+            class="input-field"
+            placeholder="subject name"
+            name="subject_name"
+          />
+          <div id="form-btn">
+            <input type="submit" value="create class" id="submit-btn" />
+            <button class="cancel-btn">cancel</button>
+          </div>
+          <!-- <input type="submit" value="create class" id="submit-btn"> -->
+        </form>
+      </div>
+    </section>
+
+    <section id="classes-section">
+      <div id="classroom">
+        {% for class in classes %}
+        <div class="class-cards">
+          <div
+            class="class-name"
+            style="
+              background: url('{% static './TeacherPortal/images/class-card.jpg' %}')
+                no-repeat;
+            "
+          >
+            <!-- <h1>{{class.subject_name}}</h1> -->
+            <h4>
+              <a href="{% url 'teacher_portal:class_detail' class.id %}"
+                >{{class.subject_name}}</a
+              >
+            </h4>
+            <p>{{class.class_name}}</p>
+            <p>{{teacher_name}}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <script>
+      document
+        .getElementById("create-class-btn")
+        .addEventListener("click", function () {
+          document.getElementById("create-new-class").style.display = "flex";
+          document.body.style.overflow = "hidden";
+        });
+      document
+        .getElementsByClassName("cancel-btn")
+        .addEventListener("click", function () {
+          document.getElementById("create-new-class").style.display = "none";
+          document.body.style.overflow = "auto";
+        });
+    </script>
+  </body>
+</html>

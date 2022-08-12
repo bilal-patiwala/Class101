@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.navbar > .classroom-links > ul{
+    display: flex;
+    gap: 10px;
+    list-style: none;
+}
+
+
+#profile-btn{
+    border: none;
+    background: none;
+}
+
+#profile-btn > img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    /* -webkit-box-shadow: 1px 8px 32px -5px rgba(0,0,0,0.33);
+    -moz-box-shadow: 1px 8px 32px -5px rgba(0,0,0,0.33);
+    box-shadow: 1px 8px 32px -5px rgba(0,0,0,0.33); */
+}

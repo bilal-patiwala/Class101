@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class101 | Student-SignIn</title>
+    <link rel="stylesheet" href="{% static './account/css/teacher-registration.css' %}">
+</head>
+<body>
+    <div class="teacher-registration">
+        <form action="" id="teacher-form" method="post"> {% csrf_token %}
+            <h3 style="text-align: center; font-size: 2em;">Teacher SignIn</h3>
+            <label>Name</label>
+            <input type="text" class="input-field" name="name" placeholder="name">
+
+            <label >UserName</label>
+            <input type="text" class="input-field" name="username" placeholder="username">
+
+            <label>Phone No</label>
+            <input type="tel" class="input-field" placeholder="phone no" pattern="[0-9]{10}" name="phone_no">
+
+            <label>Email</label>
+            <input type="email" class="input-field" name="email" placeholder="email">
+
+            <label>Password</label>
+            <input type="password" class="input-field" name="password" placeholder="password">
+
+            <label>Confirm Password</label>
+            <input type="password" class="input-field" name="confirm_password" placeholder="confirm password">
+
+            <input type="submit" value="Sign In" id="submit-btn">
+        </form>
+    </div>
+</body>
+</html>

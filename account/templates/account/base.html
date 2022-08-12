@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class101</title>
+    <link rel="stylesheet" href="{% static './account/css/base.css' %}">
+</head>
+<body>
+    <section class="s1">
+        <div id="register">
+            <h1> Welcome to Class101 where teaching and learning come together</h1>
+            <p>Class101 is a Student-Teacher Portal where techers and student can sign up and teachers can add students in their class.</p>
+            <p>Register to get started</p>
+            <div id="register-links">
+                <button class="btn" id="teacher-btn">Teacher</button>
+                <button class="btn" id="student-btn">Student</button>
+            </div>
+        </div>
+        <div class="login">
+            <form action="" id="login-form" method="post"> {% csrf_token %}
+                <h3 style="text-align: center; font-size: 2em;">Log in</h3>
+                <label>UserName</label>
+                <input type="text" class="input-field" name="username" placeholder="username">
+
+                <label >Email</label>
+                <input type="email" class="input-field" name="email" placeholder="email">
+
+                <label>Password</label>
+                <input type="password" class="input-field" name="password" placeholder="username">
+
+                <input type="submit" value="login" id="submit-btn">
+            </form>
+        </div>
+    </section>
+
+    <script>
+        var teacher = document.getElementById('teacher-btn')
+        teacher.addEventListener('click', () =>{
+            window.location.href = "{% url 'account:teacher-register' %}"
+        })
+
+        var student = document.getElementById('student-btn')
+        student.addEventListener('click', () =>{
+            window.location.href = "{% url 'account:student-register' %}"
+        })
+    </script>
+</body>
+</html>
