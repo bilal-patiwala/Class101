@@ -10,6 +10,7 @@
       rel="stylesheet"
       href="{% static './TeacherPortal/css/teacher_detail_page.css' %}"
     />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
   </head>
   <body>
     <nav>
@@ -18,14 +19,13 @@
           <h1><a href="#">Class101</a></h1>
         </div>
         <div id="nav-components">
-          <a href="{% url 'teacher_portal:logout' %}"> logout</a>
           <button id="create-class-btn">
             <img
               src="{% static './TeacherPortal/images/plus.png' %}"
               alt="Make-class"
             />
           </button>
-          <button id="profile-btn">
+          <button id="profile-btn" data-bs-toggle="modal" data-bs-target="#profileModal">
             <img
               src="{% static './TeacherPortal/images/user.png' %}"
               alt="Profile"
@@ -34,6 +34,63 @@
         </div>
       </div>
     </nav>
+
+    <!-- profile modal -->
+
+    <section>
+      <div class="modal right fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button class=" btn border-0 mx-auto d-block" data-bs-toggle="modal" data-bs-target="#editProfileImageModal" >
+                <img  class="rounded " style="width: 100px; height: 100px;"
+                src="{% static './TeacherPortal/images/user.png' %}"
+                alt="Profile"
+                />
+              </button>
+              
+            </div>
+            <div class="modal-footer">
+              <a class="btn btn-primary mx-auto d-block" href="{% url 'teacher_portal:logout' %}">Logout from account</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- edit profile image modal -->
+
+    <section>
+      <div class="modal fade " id="editProfileImageModal" tabindex="-1" aria-labelledby="editProfileImageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content  bg-dark">
+            <div class="modal-header flex-column text-light">
+              <div>
+                <h3>Profile Picture</h3>
+              </div>
+              <div>
+                <p >A picture helps people recognize you and lets you know when you’re signed in to your account</p>
+              </div>
+            </div>
+            <div class="modal-body">
+              <img  class="rounded mx-auto d-block" style="width: 320px; height: 320px;"
+                src="{% static './TeacherPortal/images/user.png' %}"
+                alt="Profile"
+                />
+            </div>
+            <div class="modal-footer justify-content-around">
+              <form action="" method="post" style="display: none;">
+                {% csrf_token %}
+                <input type="file" name="edit_profile" id="fileInput" style="display: none;">
+              </form>
+              <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" onclick="document.getElementById('fileInput').click();">Edit image</button>
+              
+              <button type="button" class="btn btn-outline-primary">Remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section>
       <div id="create-new-class">
@@ -82,11 +139,8 @@
                 no-repeat;
             "
           >
-            <!-- <h1>{{class.subject_name}}</h1> -->
             <h4>
-              <a href="{% url 'teacher_portal:class_detail' class.id %}"
-                >{{class.subject_name}}</a
-              >
+              <a href="{% url 'teacher_portal:class_detail' class.id %}">{{class.subject_name}}</a>
             </h4>
             <p>{{class.class_name}}</p>
             <p>{{teacher_name}}</p>
@@ -110,5 +164,6 @@
           document.body.style.overflow = "auto";
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
   </body>
 </html>

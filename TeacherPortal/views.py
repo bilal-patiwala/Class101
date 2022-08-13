@@ -21,10 +21,16 @@ def teacherDetail(request):
         new_class = CreateClass.objects.create(teacher=teacher,class_name=class_name,section=section,subject_name=subject_name)
         new_class.save()
         return redirect('teacher_portal:teacher_detail')
+    
+    
 
     classes = reversed(CreateClass.objects.filter(teacher=teacher))
+    context = {
+        'teacher_name':teacher_name,
+        'classes':classes
+    }
 
-    return render(request,'TeacherPortal/teacher_detail_page.html',{'teacher_name':teacher_name,'classes':classes})
+    return render(request,'TeacherPortal/teacher_detail_page.html',context)
 
 def logout(request):
     auth.logout(request)
@@ -32,5 +38,6 @@ def logout(request):
 
 
 def classDetail(request,id):
+    
     
     return render(request,'TeacherPortal/class_detail.html',{'class_detail': get_object_or_404(CreateClass, pk=id )})
