@@ -147,11 +147,7 @@
         {% for class in classes %}
         <div class="class-cards">
           <div
-            class="class-name"
-            style="
-              background: url('{% static './TeacherPortal/images/class-card.jpg' %}')
-                no-repeat;
-            "
+            class="class-name bg-info"
           >
             <h4>
               <a href="{% url 'teacher_portal:class_detail' class.id %}">{{class.subject_name}}</a>
