@@ -26,10 +26,15 @@
             />
           </button>
           <button id="profile-btn" data-bs-toggle="modal" data-bs-target="#profileModal">
-            <img
+            {% if teacher.teacher_profile_pic %}
+              <img src="{{ teacher.teacher_profile_pic.url }}" alt="">
+            {% else %}
+              <img
               src="{% static './TeacherPortal/images/user.png' %}"
               alt="Profile"
-            />
+              />
+            {% endif %}
+            
           </button>
         </div>
       </div>
@@ -43,10 +48,14 @@
           <div class="modal-content">
             <div class="modal-header">
               <button class=" btn border-0 mx-auto d-block" data-bs-toggle="modal" data-bs-target="#editProfileImageModal" >
-                <img  class="rounded " style="width: 100px; height: 100px;"
+                {% if teacher.teacher_profile_pic %}
+                <img  style="width: 100px; height: 100px; border-radius: 50%;" src="{{ teacher.teacher_profile_pic.url }}" alt="">
+                {% else %}
+                <img  style="width: 100px; height: 100px; border-radius: 50%;"
                 src="{% static './TeacherPortal/images/user.png' %}"
                 alt="Profile"
                 />
+                {% endif %}
               </button>
               
             </div>
@@ -73,17 +82,22 @@
               </div>
             </div>
             <div class="modal-body">
-              <img  class="rounded mx-auto d-block" style="width: 320px; height: 320px;"
+              {% if teacher.teacher_profile_pic %}
+                <img  class="mx-auto d-block" style="width: 320px; height: 320px; border-radius: 50%;" src="{{ teacher.teacher_profile_pic.url }}" alt="">
+              {% else %}
+                <img class="mx-auto d-block" style="width: 320px; height: 320px; border-radius: 50%;"
                 src="{% static './TeacherPortal/images/user.png' %}"
                 alt="Profile"
                 />
+              {% endif %}
             </div>
             <div class="modal-footer justify-content-around">
-              <form action="" method="post" style="display: none;">
+              <form action="" method="post"  enctype="multipart/form-data">
                 {% csrf_token %}
-                <input type="file" name="edit_profile" id="fileInput" style="display: none;">
+                <input type="file" name="edit_profile" id="fileInput" >
+                <input name="edit_image" type="submit" class="btn btn-outline-primary" value="Edit image">
               </form>
-              <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" onclick="document.getElementById('fileInput').click();">Edit image</button>
+              <!-- <button  data-bs-dismiss="modal" onclick="document.getElementById('fileInput').click();">Edit image</button> -->
               
               <button type="button" class="btn btn-outline-primary">Remove</button>
             </div>
@@ -120,7 +134,7 @@
             name="subject_name"
           />
           <div id="form-btn">
-            <input type="submit" value="create class" id="submit-btn" />
+            <input name="create_class" type="submit" value="create class" id="submit-btn" />
             <button class="cancel-btn">cancel</button>
           </div>
           <!-- <input type="submit" value="create class" id="submit-btn"> -->
