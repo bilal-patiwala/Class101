@@ -35,3 +35,12 @@ a{
     -moz-box-shadow: 1px 8px 32px -5px rgba(0,0,0,0.33);
     box-shadow: 1px 8px 32px -5px rgba(0,0,0,0.33); */
 }
+
+
+
+@media screen and (max-width: 500px) {
+    #sub-header{
+        inline-size: 150px; 
+        overflow: hidden;
+    } 
+}
