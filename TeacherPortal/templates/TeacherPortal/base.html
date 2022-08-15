@@ -12,23 +12,23 @@
   <body>
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
-          <a id="sub-header" class="navbar-brand" href="#"> {{class_detail.subject_name}} </a>
+          <a id="sub-header" class="navbar-brand" href="{% url 'teacher_portal:class_detail' id %}"> {{class_detail.subject_name}} </a>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">Stream</a>
+                <a class="nav-link text-dark" aria-current="page" href="{% url 'teacher_portal:class_detail' id %}">Stream</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">classwork</a>
+                <a class="nav-link text-dark" aria-current="page" href="#">classwork</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Students</a>
+                <a class="nav-link text-dark" href="#">Students</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link">Grades</a>
+                <a class="nav-link text-dark" href="#">Grades</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'teacher_portal:logout' %}">logout</a>
+                <a class="nav-link text-dark" href="{% url 'teacher_portal:logout' %}">logout</a>
               </li>
             </ul>
             

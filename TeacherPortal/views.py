@@ -49,6 +49,7 @@ def classDetail(request,id):
     context = {
         'class_detail': get_object_or_404(CreateClass, pk=id ),
         'teacher':teacher,
+        'id':id,
     }
     
     return render(request,'TeacherPortal/class_detail.html',context)
