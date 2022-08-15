@@ -1,1 +1,24 @@
-{% extends 'TEacherPortal/base.html' %}
+{% extends 'TeacherPortal/base.html' %}
+{% load static %}
+
+{% block title %} {{class_detail.subject_name}} {% endblock title %}
+
+{% block link %} <link rel="stylesheet" href="{% static './TeacherPortal/css/stream.css' %}"> {% endblock link %}
+
+{% block content %} 
+    <section>
+        <div id="stream">
+            <div id="class-detail-container" class="bg-primary">
+                <h4>
+                    Subject Name: <span style="text-decoration: underline;">{{class_detail.subject_name}}</span>
+                </h4>
+                <h4>Class Name: <span style="text-decoration: underline;">{{class_detail.class_name}}</span></h4>
+                <h4>Faculty Name: <span style="text-decoration: underline;">{{class_detail.teacher}}</span></h4>
+            </div>
+            
+            <div id="announcement">
+                
+            </div>
+        </div>
+    </section>
+{% endblock content %}
