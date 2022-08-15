@@ -45,6 +45,10 @@ def logout(request):
 
 
 def classDetail(request,id):
+    teacher = Teacher.objects.get(user=request.user)
+    context = {
+        'class_detail': get_object_or_404(CreateClass, pk=id ),
+        'teacher':teacher,
+    }
     
-    
-    return render(request,'TeacherPortal/class_detail.html',{'class_detail': get_object_or_404(CreateClass, pk=id )})
+    return render(request,'TeacherPortal/class_detail.html',context)

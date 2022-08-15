@@ -17,7 +17,21 @@
             </div>
             
             <div id="announcement">
-                <div id="user-profile-image"></div>
+                <div id="user-profile-image">
+                    <button class="btn border-0">
+                        {% if teacher.teacher_profile_pic %}
+                            <img  style="width: 50px; height: 50px; border-radius: 50%;" src="{{ teacher.teacher_profile_pic.url }}" alt="profile">
+                        {% else %}
+                            <img  style="width: 50px; height: 50px; border-radius: 50%;"
+                            src="{% static './TeacherPortal/images/user.png' %}"
+                            alt="Profile"
+                            />
+                        {% endif %}
+                    </button>
+                </div>
+                <div id="announcement-text">
+                    Announce something to your class students
+                </div>
             </div>
         </div>
     </section>

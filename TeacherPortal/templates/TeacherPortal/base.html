@@ -34,7 +34,16 @@
             
           </div>
           <div>
-              <button style="margin-right:5px;" id="profile-btn"><img src="{% static './TeacherPortal/images/user.png' %}" alt="Profile"></button>
+              <button style="margin-right:5px;" id="profile-btn">
+                {% if teacher.teacher_profile_pic %}
+                    <img  style="width: 50px; height: 50px; border-radius: 50%;" src="{{ teacher.teacher_profile_pic.url }}" alt="profile">
+                {% else %}
+                  <img  style="width: 50px; height: 50px; border-radius: 50%;"
+                  src="{% static './TeacherPortal/images/user.png' %}"
+                  alt="Profile"
+                  />
+                {% endif %}
+              </button>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
