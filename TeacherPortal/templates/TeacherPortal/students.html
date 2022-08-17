@@ -1,0 +1,22 @@
+{% extends 'TeacherPortal/base.html' %}
+{% load static %}
+
+{% block title %} Students {% endblock title %}
+
+{% block link %} <link rel="stylesheet" href="{% static './TeacherPortal/css/students.css' %}"> {% endblock link %}
+
+{% block content %}
+    <section>
+        <div id="students-container">
+            <div id="add-container">
+                <div style="font-size: 2em; color:green;">
+                    Students
+                </div>
+                <div class="add-student-icon">
+                    <button id="add-student-icon" class="btn border-0"><img style="width: 30px; height: 30px; border-radius: 50%;" src="{% static './TeacherPortal/images/student.png' %}" alt=""></button>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+{% endblock content %}

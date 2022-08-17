@@ -1,3 +1,4 @@
+from multiprocessing import context
 from django.shortcuts import redirect, render, get_object_or_404
 from django.urls import reverse
 from TeacherPortal.models import CreateClass
@@ -47,9 +48,18 @@ def logout(request):
 def classDetail(request,id):
     teacher = Teacher.objects.get(user=request.user)
     context = {
-        'class_detail': get_object_or_404(CreateClass, pk=id ),
+        'class_detail': get_object_or_404(CreateClass, pk=id),
         'teacher':teacher,
         'id':id,
     }
     
     return render(request,'TeacherPortal/class_detail.html',context)
+
+def students(request,id):
+    teacher = Teacher.objects.get(user=request.user)
+    context = {
+        'class_detail': get_object_or_404(CreateClass, pk=id),
+        'teacher':teacher,
+        'id':id,
+    }
+    return render(request,'TeacherPortal/students.html',context)
