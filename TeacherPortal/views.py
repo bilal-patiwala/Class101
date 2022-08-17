@@ -1,8 +1,9 @@
 from multiprocessing import context
+from turtle import st
 from django.shortcuts import redirect, render, get_object_or_404
 from django.urls import reverse
 from TeacherPortal.models import CreateClass
-from account.models import Teacher
+from account.models import Student, Teacher
 from django.contrib.auth.models import auth
 from django.contrib import messages
 
@@ -57,6 +58,19 @@ def classDetail(request,id):
 
 def students(request,id):
     teacher = Teacher.objects.get(user=request.user)
+    if request.method == 'POST':
+        email = request.POST['email']
+        roll_no = request.POST['roll_no']
+        if Student.objects.filter(email=email,roll_no=roll_no).exists():
+            student = Student.objects.get(email=email,roll_no=roll_no)
+            current_class = get_object_or_404(CreateClass,pk=id)
+            current_class.student = student
+            current_class.save()
+            return redirect('teacher_portal:students',id=id)
+        else:
+            messages.error(request, 'student does not exist')
+
+
     context = {
         'class_detail': get_object_or_404(CreateClass, pk=id),
         'teacher':teacher,

@@ -47,9 +47,9 @@
                 <div class="modal-body">
                   <form action="" method="post" id="add-student-form">
                     {% csrf_token %}
-                    <input type="text" placeholder="Username">
+                    <input type="email" placeholder="email" name="email">
                     <br>
-                    <input type="text" placeholder="Enrollment No">
+                    <input type="text" placeholder="Enrollment No" name="roll_no">
                   </form>
                 </div>
                 <div class="modal-footer">
