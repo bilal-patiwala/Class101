@@ -77,3 +77,13 @@ def students(request,id):
         'id':id,
     }
     return render(request,'TeacherPortal/students.html',context)
+
+def classwork(request,id):
+    teacher = Teacher.objects.get(user=request.user)
+    context = {
+        'class_detail': get_object_or_404(CreateClass, pk=id),
+        'teacher':teacher,
+        'id':id,
+    }
+    
+    return render(request,'TeacherPortal/classwork.html',context)
