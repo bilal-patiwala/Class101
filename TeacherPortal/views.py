@@ -63,8 +63,8 @@ def students(request,id):
         roll_no = request.POST['roll_no']
         if Student.objects.filter(email=email,roll_no=roll_no).exists():
             student = Student.objects.get(email=email,roll_no=roll_no)
-            current_class = get_object_or_404(CreateClass,pk=id)
-            current_class.student = student
+            current_class = CreateClass.objects.get(teacher=teacher,pk=id)
+            current_class.student.add(student)
             current_class.save()
             return redirect('teacher_portal:students',id=id)
         else:

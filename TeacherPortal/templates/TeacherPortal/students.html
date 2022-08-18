@@ -16,24 +16,26 @@
                     <button id="add-student-icon" class="btn border-0" data-bs-toggle="modal" data-bs-target="#addStudentModal"><img style="width: 30px; height: 30px; border-radius: 50%;" src="{% static './TeacherPortal/images/student.png' %}" alt=""></button>
                 </div>
             </div>
-            <div id="show-students">
-                <div id="user-profile-image">
-                    <button class="btn border-0">
-                        <img  style="width: 30px; height: 30px; border-radius: 50%;"
-                        src="{% static './TeacherPortal/images/user.png' %}"
-                        alt="Profile"
-                        />
-                    </button>
-                </div>
-                <div id="student-name">
-                    student name
-                </div>
-                <div>
-                    <div class="options">
-                        <button id="options" class="btn border-0"><img style="width: 30px; height: 30px; border-radius: 50%;" src="{% static './TeacherPortal/images/three-dots.png' %}" alt=""></button>
-                    </div>
-                </div>
-            </div>
+            {% for student in class_detail.student.all %}
+              <div id="show-students">
+                  <div id="user-profile-image">
+                      <button class="btn border-0">
+                          <img  style="width: 30px; height: 30px; border-radius: 50%;"
+                          src="{% static './TeacherPortal/images/user.png' %}"
+                          alt="Profile"
+                          />
+                      </button>
+                  </div>
+                  <div id="student-name">
+                      {{student.name}}
+                  </div>
+                  <div>
+                      <div class="options">
+                          <button id="options" class="btn border-0"><img style="width: 30px; height: 30px; border-radius: 50%;" src="{% static './TeacherPortal/images/three-dots.png' %}" alt=""></button>
+                      </div>
+                  </div>
+              </div>
+            {% endfor %}
         </div>
     </section>
 

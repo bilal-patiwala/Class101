@@ -6,7 +6,7 @@ from account.models import Teacher,Student
 
 class CreateClass(models.Model):
     teacher = models.ForeignKey(Teacher,related_name="class_teacher",on_delete=models.CASCADE,null=True)
-    student = models.ForeignKey(Student,related_name="students",on_delete=models.CASCADE,null=True)
+    student = models.ManyToManyField(Student)
     class_name = models.CharField(max_length=255,null=False)
     section = models.CharField(max_length=255)
     subject_name = models.CharField(max_length=255)
