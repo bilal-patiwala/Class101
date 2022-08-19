@@ -1,2 +1,21 @@
 {% extends 'TeacherPortal/base.html' %}
 {% load static %}
+
+{% block title %} Classwork {% endblock title %}
+
+{% block link %} <link rel="stylesheet" href="{% static './TeacherPortal/css/classwork.css' %}"> {% endblock link %}
+
+{% block content %}
+    <section>
+       <div id="classwork-container">
+            <div id="assign-container">
+                <div style="font-size: 2em; color:green;">
+                    Classwork
+                </div>
+                <div>
+                    <button id="assign-task-btn" class="btn btn-success"> <img src="{% static './TeacherPortal/images/plus.png' %}" style="width: 15px; height: 15px;" alt=""> Assign Task</button>
+                </div>
+            </div>
+       </div>
+    </section>
+{% endblock content %}

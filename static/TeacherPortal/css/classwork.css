@@ -1,0 +1,23 @@
+#classwork-container{
+    width: 70%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+#assign-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px 10px 20px;
+    border-bottom:1px solid green;
+}
+
+#assign-task-btn{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    gap: 15px;
+    border-radius: 30px;
+    padding: 10px;
+    color: black;
+}
