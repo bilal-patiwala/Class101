@@ -13,9 +13,35 @@
                     Classwork
                 </div>
                 <div>
-                    <button id="assign-task-btn" class="btn btn-success"> <img src="{% static './TeacherPortal/images/plus.png' %}" style="width: 15px; height: 15px;" alt=""> Assign Task</button>
+                    <button id="assign-task-btn" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#assignWorkModal"><i class="fa fa-plus" style="color: white; "></i> Assign Task</button>
                 </div>
             </div>
        </div>
+    </section>
+    <section>
+        <div class="modal fade" id="assignWorkModal" tabindex="-1" aria-labelledby="assignWorkModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <div id="jasg" class="modal-title" id="assignWorkModalLabel"><i id="file-icon" class="fa fa-file-text-o"></i>Assignment</div>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="modal-body" class="modal-body" style="background-color: #f8f9fa;">
+                  <form action="" method="post">
+                    {% csrf_token %}
+                    <div id="form">
+                        <input type="text" name="title" id="" placeholder="Title">
+                        <Textarea placeholder="Description" name="description"></Textarea>
+                        <input type="file" name="file" accept=".pdf,.docx" >
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Assign</button>
+                </div>
+              </div>
+            </div>
+          </div>
     </section>
 {% endblock content %}
