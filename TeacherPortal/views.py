@@ -89,7 +89,7 @@ def classwork(request,id):
         assignment = Assignment.objects.create(classroom=classroom,title=title,description=description,assignment_file=assignment_file)
         assignment.save()
 
-    assignments = Assignment.objects.filter(classroom=classroom)
+    assignments = reversed(Assignment.objects.filter(classroom=classroom))
 
 
     context = {
