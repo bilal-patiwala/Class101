@@ -77,6 +77,37 @@
     content: none;
 }
 
+#show-assignment-conatiner{
+    /* border: 1px solid red; */
+    margin-top: 20px;
+    padding: 0px 0px 10px 15px;
+    border-bottom: 1px solid rgb(0, 128, 0,0.3);
+}
+
+#assignment-info-container{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#assignment-info-container > #file-icon{
+    background-color: rgb(0,128,0);
+    color: white;
+    font-size: 1em;
+}
+
+#show-assignment-conatiner:hover{
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    -webkit-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
+}
+
+#accordin-btn{width: 100%;}
+
 @media screen and (max-width:1000px) {
     #form{
         width: 70%;
