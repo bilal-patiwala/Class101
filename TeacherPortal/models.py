@@ -14,3 +14,11 @@ class CreateClass(models.Model):
     def __str__(self):
         return (self.section+" | "+self.subject_name)
 
+class Assignment(models.Model):
+    classroom = models.ForeignKey(CreateClass,on_delete=models.CASCADE)
+    title = models.CharField(max_length=255,blank=False,null=False)
+    description = models.TextField(blank=True)
+    assignment_file = models.FileField(upload_to="classroom/assignment",blank=False)
+
+    def __str__(self):
+        return (self.classroom.subject_name + " | " + self.title)

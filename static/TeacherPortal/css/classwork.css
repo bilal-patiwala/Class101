@@ -76,3 +76,34 @@
 #form > input[type="file"] {
     content: none;
 }
+
+@media screen and (max-width:1000px) {
+    #form{
+        width: 70%;
+    }
+}
+
+@media screen and (max-width:750px) {
+    #form{
+        width: 80%;
+    }
+}
+
+@media screen and (max-width:550px) {
+    #form{
+        width: 90%;
+    }
+    #classwork-container{
+        width: 100%;
+    }
+    
+}
+
+@media screen and (max-width:400px) {
+    #form{
+        width: 100%;
+    }
+    #assign-container{
+        padding:  0px 5px 10px 5px;
+    }
+}
