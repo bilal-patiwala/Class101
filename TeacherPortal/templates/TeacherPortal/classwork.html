@@ -16,21 +16,31 @@
                     <button id="assign-task-btn" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#assignWorkModal"><i class="fa fa-plus" style="color: white; "></i> Assign Task</button>
                 </div>
             </div>
+            {% for assignment in assignments %}
             <div id="show-assignment-conatiner">
               <div class="accordion accordion-flush" id="accordionFlushExample">
                 <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingOne"></h2>
                     <button class="btn border-0 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                       <div id="assignment-info-container" style="color: green;">
                         <i id="file-icon" class="fa fa-file-text-o"></i>
-                        Assignment
+                        {{assignment.title}}
                       </div>
                     </button>
+                  </h2>
                   <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">file</div>
+                    <div class="accordion-body">
+                      <a id="assignment-file-link" href="{{assignment.assignment_file.url}}">
+                        <p>{{assignment.title}} | 
+                          {{assignment.description}}
+                        </p>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+            {% endfor %}
        </div>
     </section>
     <section>

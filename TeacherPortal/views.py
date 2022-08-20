@@ -80,21 +80,23 @@ def students(request,id):
 
 def classwork(request,id):
     teacher = Teacher.objects.get(user=request.user)
+    classroom = get_object_or_404(CreateClass,pk=id)
     
     if request.method == 'POST':
         title = request.POST['title']
         description = request.POST['description']
         assignment_file = request.FILES['assignment_file']
-        classroom = get_object_or_404(CreateClass,pk=id)
         assignment = Assignment.objects.create(classroom=classroom,title=title,description=description,assignment_file=assignment_file)
         assignment.save()
 
+    assignments = Assignment.objects.filter(classroom=classroom)
 
 
     context = {
         'class_detail': get_object_or_404(CreateClass, pk=id),
         'teacher':teacher,
         'id':id,
+        'assignments':assignments,
     }
     
     return render(request,'TeacherPortal/classwork.html',context)

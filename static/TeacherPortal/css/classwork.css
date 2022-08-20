@@ -85,10 +85,11 @@
 }
 
 #assignment-info-container{
-
     display: flex;
     justify-content: space-between;
     align-items: center;
+    text-transform: capitalize;
+    text-decoration: underline;
 }
 
 #assignment-info-container > #file-icon{
@@ -104,6 +105,12 @@
     -webkit-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
+}
+
+#assignment-file-link{
+    text-decoration: underline;
+    color: black;
+    font-size: 1.5em;
 }
 
 #accordin-btn{width: 100%;}
