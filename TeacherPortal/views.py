@@ -1,8 +1,8 @@
 from multiprocessing import context
-from turtle import st
+from turtle import st, title
 from django.shortcuts import redirect, render, get_object_or_404
 from django.urls import reverse
-from TeacherPortal.models import CreateClass
+from TeacherPortal.models import Assignment, CreateClass
 from account.models import Student, Teacher
 from django.contrib.auth.models import auth
 from django.contrib import messages
@@ -80,6 +80,17 @@ def students(request,id):
 
 def classwork(request,id):
     teacher = Teacher.objects.get(user=request.user)
+    
+    if request.method == 'POST':
+        title = request.POST['title']
+        description = request.POST['description']
+        assignment_file = request.FILES['assignment_file']
+        classroom = get_object_or_404(CreateClass,pk=id)
+        assignment = Assignment.objects.create(classroom=classroom,title=title,description=description,assignment_file=assignment_file)
+        assignment.save()
+
+
+
     context = {
         'class_detail': get_object_or_404(CreateClass, pk=id),
         'teacher':teacher,
