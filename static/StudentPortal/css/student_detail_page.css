@@ -1,0 +1,50 @@
+#classes-section{
+    width: 90%;
+    margin: auto;
+    margin-top: 40px;
+}
+
+#classroom{
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: auto;
+    gap: 40px;
+}
+
+.class-cards{
+    width: 300px;
+    height: 300px;
+    border: 0.5px solid rgb(236, 236, 236);
+    border-radius: 5px;
+}
+
+.class-cards:hover{
+    -webkit-box-shadow: -4px 1px 29px -8px rgba(0,0,0,0.75);
+    -moz-box-shadow: -4px 1px 29px -8px rgba(0,0,0,0.75);
+    box-shadow: -4px 1px 15px -8px rgba(0,0,0,0.75);
+    border-radius: 5px;
+
+}
+
+.class-name{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    height: fit-content;
+    padding: 10px;
+    display: flex;
+    line-height: 10px;
+    flex-direction: column;
+    column-gap: 15px;
+    color: white;
+    text-transform: capitalize;
+}
+
+.class-name > h4 > a{
+    font-size: 1em;
+    text-decoration: none;
+    color: white;
+}
+
+.class-name > h4 > a:hover{
+    text-decoration: underline;
+}
