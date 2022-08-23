@@ -1,4 +1,6 @@
 __pycache__
 migrations
 .env
-media/
+/media/classroom/assignment
+/media/classroom/student_profile_pic
+/media/classroom/teacher_profile_pic
