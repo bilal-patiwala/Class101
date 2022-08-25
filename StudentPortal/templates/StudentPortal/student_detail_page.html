@@ -98,7 +98,7 @@
               class="class-name bg-info"
             >
               <h4>
-                <a href="{% url 'student_portal:class_detail' %}">{{class.subject_name}}</a>
+                <a href="{% url 'student_portal:class_detail' class.id %}">{{class.subject_name}}</a>
               </h4>
               <p>{{class.class_name}}</p>
               <p>{{class.teacher}}</p>

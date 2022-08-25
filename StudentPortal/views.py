@@ -1,5 +1,5 @@
 from urllib import request
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import auth
 from TeacherPortal.models import CreateClass
 from account.models import Student
@@ -25,5 +25,11 @@ def logout(request):
     auth.logout(request)
     return redirect('account:welcome') 
 
-def classDetail(request):
-    return render(request,'StudentPortal/class_detail.html')
+def classDetail(request,id):
+    student = Student.objects.get(user=request.user)
+    context = {
+        'class_detail': get_object_or_404(CreateClass, pk=id),
+        'student':student,
+        'id':id,
+    }
+    return render(request,'StudentPortal/class_detail.html',context)
