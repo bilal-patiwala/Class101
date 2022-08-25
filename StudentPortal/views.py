@@ -1,3 +1,4 @@
+from urllib import request
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import auth
 from TeacherPortal.models import CreateClass
@@ -23,3 +24,6 @@ def studentDetail(request):
 def logout(request):
     auth.logout(request)
     return redirect('account:welcome') 
+
+def classDetail(request):
+    return render(request,'StudentPortal/class_detail.html')
