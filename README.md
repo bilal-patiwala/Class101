@@ -34,8 +34,8 @@ Then, Enter the project
 
 5. Add the hosts
 
--Got to settings.py file
--Then, On allowed hosts, Add [‘*’].
+- Got to settings.py file
+- Then, On allowed hosts, Add [‘*’].
 
 ```ALLOWED_HOSTS = ['*']```
 
