@@ -1,4 +1,4 @@
-from urllib import request
+
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import auth
 from TeacherPortal.models import CreateClass
@@ -33,3 +33,15 @@ def classDetail(request,id):
         'id':id,
     }
     return render(request,'StudentPortal/class_detail.html',context)
+
+def students(request,id):
+    student = Student.objects.get(user=request.user)
+    classroom = get_object_or_404(CreateClass,pk=id)
+    students = classroom.student.all().order_by("name")
+    context = {
+        'class_detail': get_object_or_404(CreateClass, pk=id),
+        'student':student,
+        'id':id,
+        'students' : students,
+    }
+    return render(request,'StudentPortal/students.html',context)

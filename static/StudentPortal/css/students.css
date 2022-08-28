@@ -1,0 +1,29 @@
+#student-container{
+    width: 50%;
+    margin: auto;
+    margin-top: 30px;
+}
+
+#student-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 15px;
+    border-bottom: 1px solid blue;
+    margin-bottom: 10px;
+}
+
+#show-students{
+    border-bottom: 1px solid blue;
+    text-transform: capitalize;
+    margin-top: 10px;
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    padding: 0px 20px 0px 10px;
+}
+
+#student-name{
+    flex-grow: 2;
+}
+

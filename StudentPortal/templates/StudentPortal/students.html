@@ -1,0 +1,36 @@
+{% extends 'StudentPortal/base.html' %}
+{% load static %}
+
+{% block title %} Students {% endblock title %}
+
+{% block link %} <link rel="stylesheet" href="{% static './StudentPortal/css/students.css' %}"> {% endblock link %}
+
+{% block content %}
+    <section>
+        <div id="student-container">
+            <div id="student-header" class="text-primary">
+                <div>
+                    <h4 class="mx-auto d-block">Student</h4>
+                </div>
+                <div>
+                    <p class="mx-auto d-block">{{students.count}} students</p>
+                </div>
+            </div>
+            {% for student in students %}
+              <div id="show-students">
+                  <div id="user-profile-image">
+                      <button class="btn border-0">
+                          <img  style="width: 30px; height: 30px; border-radius: 50%;"
+                          src="{% static './StudentPortal/images/user.png' %}"
+                          alt="Profile"
+                          />
+                      </button>
+                  </div>
+                  <div id="student-name">
+                      {{student.name}}
+                  </div>
+              </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock content  %}
