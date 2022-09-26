@@ -11,12 +11,13 @@
 <body>
     <section class="s1">
         <div id="register">
-            <h1> Welcome to Class101 feat where teaching and learning come together</h1>
+            <h1> Welcome to Class101 where teaching and learning come together</h1>
             <p>Class101 is a Student-Teacher Portal where techers and student can sign up and teachers can add students in their class.</p>
             <p>Register to get started</p>
             <div id="register-links">
-                <button class="btn" id="teacher-btn">Teacher</button>
-                <button class="btn" id="student-btn">Student</button>
+                <a href="{% url 'account:teacher-register' %}"><button class="btn" id="teacher-btn">Teacher</button></a>
+                <a href="{% url 'account:student-register' %}"><button class="btn" id="student-btn">Student</button></a>
+                
             </div>
         </div>
         <div class="login">
@@ -35,17 +36,16 @@
             </form>
         </div>
     </section>
+    <!-- <script>    
+        // var teacher = document.getElementById("teacher-btn");
+        // teacher.addEventListener("click", () => {
+        // window.location.href = "{% url 'account:teacher-register' %}";
+        // });
 
-    <script>
-        var teacher = document.getElementById('teacher-btn')
-        teacher.addEventListener('click', () =>{
-            window.location.href = "{% url 'account:teacher-register' %}"
-        })
-
-        var student = document.getElementById('student-btn')
-        student.addEventListener('click', () =>{
-            window.location.href = "{% url 'account:student-register' %}"
-        })
-    </script>
+        var student = document.getElementById("student-btn");
+        student.addEventListener("click", () => {
+        window.location.href = "{% url 'account:student-register' %}";
+        });
+    </script> -->
 </body>
 </html>
