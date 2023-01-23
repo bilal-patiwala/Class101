@@ -20,19 +20,11 @@ Actiavte Virtual Enviroment
 
 ```$  source venv/scripts/activate```
 
-3. Clone this project
-
-```$  git clone https://github.com/vijaythapa333/django-student-management-system.git```
-
-Then, Enter the project
-
-```$  cd django-student-management-system```
-
-4. Install Requirements from 'requirements.txt'
+3. Install Requirements from 'requirements.txt'
 
 ```$  pip install -r requirements.txt```
 
-5. Add the hosts
+4. Add the hosts
 
 - Got to settings.py file
 - Then, On allowed hosts, Add [‘*’].
@@ -41,11 +33,11 @@ Then, Enter the project
 
 No need to change on Mac.
 
-6. Now Run Server
+5. Now Run Server
 
 ```$ python manage.py runserver```
 
-7. Login Credentials
+6. Login Credentials
 
 Create Super User (HOD)
 
